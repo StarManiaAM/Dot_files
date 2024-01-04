@@ -3,7 +3,7 @@
 # Arch linux installation script
 
 # Mandatory packages
-sudo pacman -S git man unzip python3 nodejs --noconfirm
+sudo pacman -S git man unzip python3 nodejs alacritty --noconfirm
 
 # Enable AUR
 git clone https://aur.archlinux.org/yay-git.git /tmp/yay-git && cd /tmp/yay-git && makepkg -si && cd -
