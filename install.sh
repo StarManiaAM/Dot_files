@@ -19,10 +19,11 @@ sudo mkdir -p /usr/local/share/fonts/ttf/JetBrainsMonoNerd
 sudo unzip /tmp/JetBrainsMono.zip -d /usr/local/share/fonts/ttf/JetBrainsMonoNerd
 
 ## Plugins zsh
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-echo "source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
-source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
+cd /tmp
+git clone https://aur.archlinux.org/zsh-syntax-highlighting-git.git
+cd zsh-syntax-highlighting-git && makepg -si
+cd -
+echo "source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ~/.zshrc
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 # Vim installation
