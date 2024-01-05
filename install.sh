@@ -21,7 +21,7 @@ sudo unzip /tmp/JetBrainsMono.zip -d /usr/local/share/fonts/ttf/JetBrainsMonoNer
 ## Plugins zsh
 cd /tmp
 git clone https://aur.archlinux.org/zsh-syntax-highlighting-git.git
-cd zsh-syntax-highlighting-git && makepkg -si
+cd zsh-syntax-highlighting-git && makepkg -si --noconfirm
 cd -
 echo "source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ~/.zshrc
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -29,11 +29,11 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 # Vim installation
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
 
-cp Dot_files/nvim/lua/plugins/init.lua .config/nvim/lua/plugins/init.lua
-cp Dot_files/nvim/lua/core/init.lua .config/nvim/lua/core/init.lua
-cp Dot_files/nvim/lua/core/default_config.lua .config/nvim/lua/core/default_config.lua
+cp nvim/lua/plugins/init.lua .config/nvim/lua/plugins/init.lua
+cp nvim/lua/core/init.lua .config/nvim/lua/core/init.lua
+cp nvim/lua/core/default_config.lua .config/nvim/lua/core/default_config.lua
 
 # ZSH installation
 sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
-cp Dot_files/zshrc ~/.zshrc
+cp zshrc ~/.zshrc
 chsh -s /bin/zsh
