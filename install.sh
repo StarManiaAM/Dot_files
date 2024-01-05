@@ -11,7 +11,7 @@ git clone https://aur.archlinux.org/yay-git.git /tmp/yay-git && cd /tmp/yay-git 
 
 # Configuration files
 mkdir -p .config/alacritty
-cp Dot_files/alacritty.toml ~/.config/alacritty/alacritty.toml
+cp alacritty.toml ~/.config/alacritty/alacritty.toml
 
 # Alacritty font configuration
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip -O /tmp/JetBrainsMono.zip
