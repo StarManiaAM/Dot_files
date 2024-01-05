@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # Arch linux installation script
+sudo pacman -Syyu
 
 # Mandatory packages
 sudo pacman -S git man alacritty neovim zsh unzip python3 nodejs --noconfirm
