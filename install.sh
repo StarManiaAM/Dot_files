@@ -21,7 +21,7 @@ sudo unzip /tmp/JetBrainsMono.zip -d /usr/local/share/fonts/ttf/JetBrainsMonoNer
 ## Plugins zsh
 cd /tmp
 git clone https://aur.archlinux.org/zsh-syntax-highlighting-git.git
-cd zsh-syntax-highlighting-git && makepg -si
+cd zsh-syntax-highlighting-git && makepkg -si
 cd -
 echo "source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ~/.zshrc
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
