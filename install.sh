@@ -29,3 +29,5 @@ cp nvim/lua/core/default_config.lua ~/.config/nvim/lua/core/default_config.lua
 sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 cp zshrc ~/.zshrc
 chsh -s /bin/zsh
+
+sh zsh_plugins_install.sh
