@@ -33,4 +33,5 @@ cp Dot_files/nvim/lua/core/default_config.lua .config/nvim/lua/core/default_conf
 
 # ZSH installation
 sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+cp Dot_files/zshrc ~/.zshrc
 chsh -s /bin/zsh
