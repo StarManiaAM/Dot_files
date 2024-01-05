@@ -103,14 +103,6 @@ alias l='ls -CF'
 alias la='ls -A'
 alias vim='nvim'
 
-# Update system
-update(){
-    sudo apt-get update -y
-    sudo apt-get upgrade -y
-    sudo apt autoremove -y
-}
-alias up="update"
-
 # Quick add, commit (tag) and push
 quick_git(){
     git add .
@@ -122,31 +114,9 @@ quick_git(){
         git push
     fi
 }
-alias zebi="quick_git"
-alias push="quick_git"
-
-# Shortcut to burpsuite
-alias burp="launch_burp"
-launch_burp(){
-    ./Softwares/BurpSuiteCommunity/BurpSuiteCommunity
-}
 
 # Create and move to the directory
 alias mkcd="my_mkcd"
 my_mkcd(){
     mkdir -p $1; cd $1
 }
-
-# Create a Makefile template
-alias tmake="create_make"
-create_make(){
-    cp ~/.Makefile Makefile
-}
-
-# Z
-alias zemmour='z'
-. ~/Softwares/z/z.sh
-
-export PATH=~/Softwares/ghidra_10.4_PUBLIC/bin:$PATH
-
-alias bat='batcat'
