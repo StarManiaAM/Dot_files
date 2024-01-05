@@ -15,7 +15,7 @@ cp zshrc ~/.zshrc
 chsh -s /bin/zsh
 
 # Configuration files
-mkdir -p .config/alacritty
+mkdir -p ~/.config/alacritty
 cp alacritty.toml ~/.config/alacritty/alacritty.toml
 
 # Alacritty font configuration
