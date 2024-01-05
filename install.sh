@@ -29,9 +29,9 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 # Vim installation
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
 
-cp nvim/lua/plugins/init.lua .config/nvim/lua/plugins/init.lua
-cp nvim/lua/core/init.lua .config/nvim/lua/core/init.lua
-cp nvim/lua/core/default_config.lua .config/nvim/lua/core/default_config.lua
+cp nvim/lua/plugins/init.lua ~/.config/nvim/lua/plugins/init.lua
+cp nvim/lua/core/init.lua ~/.config/nvim/lua/core/init.lua
+cp nvim/lua/core/default_config.lua ~/.config/nvim/lua/core/default_config.lua
 
 # ZSH installation
 sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
