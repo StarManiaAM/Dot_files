@@ -1,4 +1,4 @@
-ive_config_reload = true
+live_config_reload = true
 working_directory = "None"
 
 [colors]
