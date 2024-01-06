@@ -1,4 +1,4 @@
-sudo pacman -S nvim --noconfirm
+sudo pacman -S neovim --noconfirm
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
 
 cp nvim/lua/plugins/init.lua ~/.config/nvim/lua/plugins/init.lua
