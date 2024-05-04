@@ -26,7 +26,6 @@ local plugins = {
         lazy = false,
     },
 
-    { "wakatime/vim-wakatime", lazy = false },
     -- override plugin configs
     {
         "williamboman/mason.nvim",

@@ -111,7 +111,8 @@ quick_git(){
         git tag -ma "$2"
         git push --follow-tags
     else
-        git push
+        git tag -ma "$1"
+        git push --follow-tags
     fi
 }
 
