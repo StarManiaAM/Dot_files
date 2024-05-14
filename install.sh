@@ -10,4 +10,5 @@ sudo pacman -S git man alacritty vim neovim zsh unzip python3 nodejs bat bitward
 git clone https://aur.archlinux.org/yay-git.git /tmp/yay-git && cd /tmp/yay-git && makepkg -si --noconfirm && cd -
 
 # i3 config
+mkdir -p ~/.config/i3
 cp config ~/.config/i3/config
