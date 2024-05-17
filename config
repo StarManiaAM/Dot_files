@@ -189,8 +189,8 @@ bar {
         status_command i3status
 }
 
-#exec ~/.scripts/inverse-scroll.sh
-#exec ~/.scripts/tap-to-click.sh
+exec ~/.scripts/inverse-scroll.sh
+exec ~/.scripts/tap-to-click.sh
 exec --no-startup-id feh --bg-fill ~/Pictures/wallpaper.jpg
 exec --no-startup-id compton
 bindsym $mod+Shift+S exec --no-startup-id maim --select "/home/$USER/Pictures/$(date).png"
