@@ -4,7 +4,7 @@
 sudo pacman -Syyu --noconfirm
 
 # Mandatory packages
-sudo pacman -S git man alacritty neovim zsh unzip python3 nodejs bat bitwarden clang discord eog feh neofetch net-tools os-prober maim xclip picom xorg-xinput dunst fuse2 rofi polybar p7zip  --noconfirm
+sudo pacman -S git man alacritty neovim zsh unzip python3 nodejs bat bitwarden clang discord eog feh neofetch net-tools os-prober maim xclip picom xorg-xinput dunst fuse2 rofi polybar p7zip brightnessctl  --noconfirm
 
 # Enable AUR
 git clone https://aur.archlinux.org/yay-git.git /tmp/yay-git && cd /tmp/yay-git && makepkg -si --noconfirm && cd -
