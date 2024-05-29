@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -16,6 +16,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -24,61 +25,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
-# tab autocompletions
-autoload -Uz compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-_comp_options+=(globdots)
-compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 
-# history
-export HISTSIZE=100000
-export SAVEHIST=20000
-export HISTFILE="$HOME/.cache/zsh/history"
-setopt hist_ignore_dups     # do not record an event that was just recorded again
-setopt hist_ignore_all_dups # delete an old recorded event if a new event is a duplicate
-setopt hist_ignore_space    # do not record an event starting with a space
-setopt hist_save_no_dups    # do not write a duplicate event to the history file
-setopt inc_append_history   # write to the history file immediately, not when the shell exits
-setopt share_history        # share history between terminals
-
-# basic plugin manager to automatically import zsh plugins
-# script by mattmc3 from https://github.com/mattmc3/zsh_unplugged
-# clone a plugin, identify its init file, source it, and add it to your fpath
-function plugin-load {
-	local repo plugdir initfile initfiles=()
-	: ${ZPLUGINDIR:=${ZDOTDIR:-~/.config/zsh}/plugins}
-	for repo in $@; do
-		plugdir=$ZPLUGINDIR/${repo:t}
-		initfile=$plugdir/${repo:t}.plugin.zsh
-		if [[ ! -d $plugdir ]]; then
-			echo "Cloning $repo..."
-			git clone -q --depth 1 --recursive --shallow-submodules \
-				https://github.com/$repo $plugdir
-		fi
-		if [[ ! -e $initfile ]]; then
-			initfiles=($plugdir/*.{plugin.zsh,zsh-theme,zsh,sh}(N))
-			(( $#initfiles )) || { echo >&2 "No init file '$repo'." && continue }
-			ln -sf $initfiles[1] $initfile
-		fi
-		fpath+=$plugdir
-		(( $+functions[zsh-defer] )) && zsh-defer . $initfile || . $initfile
-	done
-}
-
-# list of github repos of plugins
-repos=(
-	#romkatv/powerlevel10k
-
-	#skywind3000/z.lua
-	#jeffreytse/zsh-vi-mode
-
-	#romkatv/zsh-defer
-	zsh-users/zsh-autosuggestions
-	zdharma-continuum/fast-syntax-highlighting
-	#kazhala/dotbare
-)
-plugin-load $repos
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
@@ -130,7 +77,7 @@ plugin-load $repos
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git z)
+plugins=(git z zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -156,13 +103,11 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 alias l='ls -CF'
 alias la='ls -A'
 
@@ -184,4 +129,9 @@ alias mkcd="my_mkcd"
 my_mkcd(){
     mkdir -p $1; cd $1
 }
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# Created by `pipx` on 2024-05-29 10:05:57
+export PATH="$PATH:/home/amory/.local/bin"
+alias exegol='sudo -E /home/amory/.local/bin/exegol'
+eval "$(register-python-argcomplete --no-defaults exegol)"
