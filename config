@@ -28,7 +28,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- /home/amory/.scripts/lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -67,7 +67,8 @@ bindsym $mod+d exec --no-startup-id /home/$USER/.config/polybar/cuts/scripts/lau
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+l exec /home/$USER/.scripts/lock
+bindsym $mod+l exec /home/$USER/.scripts/lock && systemctl suspend
+bindsym $mod+o exec poweroff
 # change focus
 #bindsym $mod+j focus left
 #bindsym $mod+k focus down
@@ -335,3 +336,6 @@ for_window [class="^.*"] border pixel 1
 
 # Polybar
 exec_always --no-startup-id /home/$USER/.config/polybar/cuts/launch.sh
+
+# Set accent
+exec --no-startup-id setxkbmap -option compose:ralt
