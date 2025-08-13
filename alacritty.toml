@@ -42,7 +42,7 @@ log_level = "Info"
 size = 8
 
 [font.normal]
-family = "jetbrainsmono nerd font"
+family = "JetBrainsMono Nerd Font"
 
 [scrolling]
 history = 10000
